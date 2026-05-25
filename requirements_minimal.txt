@@ -1,0 +1,17 @@
+python-dotenv==1.0.1
+fastapi==0.110.0
+uvicorn[standard]==0.27.0
+pydantic==2.6.3
+anthropic==0.28.0
+requests==2.31.0
+httpx==0.26.0
+langchain==0.1.14
+langchain-core==0.1.42
+langgraph==0.0.30
+langchain-anthropic==0.1.0
+mcp==1.0.0
+fastmcp==2.13.3
+pandas==2.1.4
+numpy>=1.26.0
+streamlit==1.31.1
+pytest==7.4.3

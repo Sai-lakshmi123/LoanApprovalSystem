@@ -1,0 +1,404 @@
+================================================================================
+MULTI-AGENT LOAN APPROVAL SYSTEM - FOLDER STRUCTURE
+================================================================================
+
+LoanApprovalSystem/
+│
+├── 📂 presentation/                    ≡ LAYER 1: STREAMLIT UI
+│   ├── __init__.py
+│   ├── app.py                          Main Streamlit application
+│   ├── config.py                       Streamlit configuration
+│   │
+│   ├── 📂 pages/
+│   │   ├── __init__.py
+│   │   ├── 01_dashboard.py             Main dashboard with KPIs
+│   │   ├── 02_loan_application.py      New loan application form
+│   │   ├── 03_application_status.py    Check application status
+│   │   ├── 04_analytics.py             Reports & analytics
+│   │   └── 05_settings.py              User settings
+│   │
+│   ├── 📂 components/
+│   │   ├── __init__.py
+│   │   ├── forms.py                    Form components
+│   │   ├── cards.py                    Card/widget components
+│   │   ├── charts.py                   Chart components
+│   │   ├── status_indicators.py        Status badges
+│   │   └── navigation.py               Navigation menus
+│   │
+│   ├── 📂 utils/
+│   │   ├── __init__.py
+│   │   ├── api_client.py               HTTP client for API calls
+│   │   ├── formatters.py               Data formatting utilities
+│   │   ├── validators.py               Input validation
+│   │   └── session_state.py            Session state management
+│   │
+│   └── 📂 assets/
+│       ├── images/
+│       ├── icons/
+│       └── styles.css
+│
+├── 📂 microservices/                   ≡ LAYER 2: FASTAPI BACKEND
+│   ├── __init__.py
+│   ├── main.py                         FastAPI app initialization
+│   │
+│   ├── 📂 api/
+│   │   ├── __init__.py
+│   │   ├── routes.py                   Main router definitions
+│   │   ├── loan_routes.py              Loan endpoints
+│   │   ├── status_routes.py            Status endpoints
+│   │   ├── analytics_routes.py         Analytics endpoints
+│   │   └── health.py                   Health check endpoint
+│   │
+│   ├── 📂 schemas/
+│   │   ├── __init__.py
+│   │   ├── loan.py                     Loan request/response models
+│   │   ├── applicant.py                Applicant models
+│   │   ├── decision.py                 Decision models
+│   │   └── responses.py                Common response schemas
+│   │
+│   ├── 📂 models/
+│   │   ├── __init__.py
+│   │   ├── loan_application.py         LoanApplication ORM model
+│   │   ├── applicant.py                Applicant ORM model
+│   │   ├── decision.py                 Decision ORM model
+│   │   └── audit_log.py                Audit trail ORM model
+│   │
+│   ├── 📂 middleware/
+│   │   ├── __init__.py
+│   │   ├── auth.py                     Authentication middleware
+│   │   ├── logging.py                  Request logging
+│   │   ├── error_handling.py           Error handling
+│   │   └── cors.py                     CORS configuration
+│   │
+│   ├── 📂 dependencies/
+│   │   ├── __init__.py
+│   │   ├── database.py                 Database session dependency
+│   │   ├── auth.py                     Auth dependencies
+│   │   ├── orchestrator.py             LangGraph orchestrator
+│   │   └── mcp.py                      MCP client dependency
+│   │
+│   └── 📂 crud/
+│       ├── __init__.py
+│       ├── loan.py                     Loan CRUD operations
+│       ├── applicant.py                Applicant CRUD operations
+│       └── decision.py                 Decision CRUD operations
+│
+├── 📂 orchestration/                   ≡ LAYER 3: LANGGRAPH
+│   ├── __init__.py
+│   ├── graph.py                        Main graph builder
+│   ├── state.py                        State definition
+│   ├── router.py                       Routing logic
+│   │
+│   ├── 📂 workflows/
+│   │   ├── __init__.py
+│   │   ├── loan_approval_workflow.py   Main approval workflow
+│   │   ├── parallel_workflow.py        Parallel processing
+│   │   └── callback_workflow.py        Async callback workflow
+│   │
+│   ├── 📂 state_managers/
+│   │   ├── __init__.py
+│   │   ├── conversation_state.py       Conversation tracking
+│   │   ├── workflow_state.py           Workflow progress
+│   │   └── context_manager.py          Context preservation
+│   │
+│   └── 📂 validators/
+│       ├── __init__.py
+│       ├── state_validator.py          State validators
+│       └── workflow_validator.py       Workflow validators
+│
+├── 📂 agents/                          ≡ LAYER 4: 4 SPECIALIZED AGENTS
+│   ├── __init__.py
+│   ├── base_agent.py                   Base agent class
+│   │
+│   ├── 📂 loan_processor/              Agent 1: Loan Processor
+│   │   ├── __init__.py
+│   │   ├── agent.py                    Agent logic
+│   │   ├── prompts.py                  System prompts
+│   │   ├── tools.py                    Available tools
+│   │   └── validators.py               Input validation
+│   │
+│   ├── 📂 credit_analyzer/             Agent 2: Credit Analyzer
+│   │   ├── __init__.py
+│   │   ├── agent.py                    Agent logic
+│   │   ├── prompts.py                  System prompts
+│   │   ├── tools.py                    Available tools
+│   │   └── validators.py               Input validation
+│   │
+│   ├── 📂 risk_assessor/               Agent 3: Risk Assessor
+│   │   ├── __init__.py
+│   │   ├── agent.py                    Agent logic
+│   │   ├── prompts.py                  System prompts
+│   │   ├── tools.py                    Available tools
+│   │   └── validators.py               Input validation
+│   │
+│   ├── 📂 decision_maker/              Agent 4: Decision Maker
+│   │   ├── __init__.py
+│   │   ├── agent.py                    Agent logic
+│   │   ├── prompts.py                  System prompts
+│   │   ├── tools.py                    Available tools
+│   │   └── validators.py               Input validation
+│   │
+│   └── 📂 shared/
+│       ├── __init__.py
+│       ├── common_tools.py             Common tools for all agents
+│       ├── memory.py                   Agent memory/context
+│       └── response_formatter.py       Response formatting
+│
+├── 📂 mcp/                             ≡ LAYER 5: MCP INTEGRATION
+│   ├── __init__.py
+│   ├── server.py                       MCP server initialization
+│   │
+│   ├── 📂 clients/
+│   │   ├── __init__.py
+│   │   ├── mcp_client.py               Generic MCP client
+│   │   └── tool_client.py              Tool-specific client
+│   │
+│   ├── 📂 tools/
+│   │   ├── __init__.py
+│   │   ├── database_tools.py           Database access tools
+│   │   ├── external_api_tools.py       External API integration
+│   │   ├── calculation_tools.py        Calculation tools
+│   │   └── document_tools.py           Document processing
+│   │
+│   ├── 📂 resources/
+│   │   ├── __init__.py
+│   │   ├── credit_rules.py             Credit scoring rules
+│   │   ├── compliance_rules.py         Compliance rules
+│   │   └── reference_data.py           Reference data
+│   │
+│   └── 📂 handlers/
+│       ├── __init__.py
+│       ├── call_tool_handler.py        Tool call handler
+│       ├── read_resource_handler.py    Resource handler
+│       └── list_handler.py             List handler
+│
+├── 📂 shared/                          ≡ SHARED UTILITIES
+│   ├── __init__.py
+│   ├── config.py                       Global configuration
+│   ├── logger.py                       Logging setup
+│   ├── constants.py                    Constants
+│   ├── enums.py                        Enumerations
+│   │
+│   ├── 📂 database/
+│   │   ├── __init__.py
+│   │   ├── connection.py               Database connections
+│   │   ├── session.py                  Session management
+│   │   └── migrations.py               Database migrations
+│   │
+│   ├── 📂 exceptions/
+│   │   ├── __init__.py
+│   │   ├── loan_exceptions.py          Loan exceptions
+│   │   ├── agent_exceptions.py         Agent exceptions
+│   │   └── mcp_exceptions.py           MCP exceptions
+│   │
+│   └── 📂 utils/
+│       ├── __init__.py
+│       ├── validators.py               Data validators
+│       ├── formatters.py               Data formatters
+│       ├── calculators.py              Calculation helpers
+│       └── helpers.py                  General utilities
+│
+├── 📂 config/                          ≡ CONFIGURATION LAYER
+│   ├── __init__.py
+│   ├── settings.py                     Environment-based settings
+│   ├── database.py                     Database configuration
+│   ├── logging.py                      Logging configuration
+│   ├── mcp.py                          MCP configuration
+│   └── agents.py                       Agent configuration
+│
+├── 📂 scripts/                         ≡ UTILITY SCRIPTS
+│   ├── __init__.py
+│   ├── setup_db.py                     Database initialization
+│   ├── seed_data.py                    Seed test data
+│   ├── run_migration.py                Run migrations
+│   └── cleanup.py                      Cleanup utilities
+│
+├── 📂 tests/                           ≡ TEST SUITE
+│   ├── __init__.py
+│   ├── conftest.py                     Pytest configuration
+│   │
+│   ├── 📂 unit/
+│   │   ├── test_agents.py              Agent unit tests
+│   │   ├── test_microservices.py       API unit tests
+│   │   └── test_orchestration.py       Orchestration tests
+│   │
+│   ├── 📂 integration/
+│   │   ├── test_workflow.py            Workflow integration tests
+│   │   ├── test_api.py                 API integration tests
+│   │   └── test_mcp_integration.py     MCP integration tests
+│   │
+│   └── 📂 fixtures/
+│       ├── loan_fixtures.py            Loan test data
+│       ├── agent_fixtures.py           Agent mocks
+│       └── mcp_fixtures.py             MCP mocks
+│
+├── 📂 docs/                            ≡ DOCUMENTATION
+│   ├── ARCHITECTURE.md                 Architecture details
+│   ├── api.md                          API documentation
+│   ├── agents.md                       Agent documentation
+│   ├── workflows.md                    Workflow documentation
+│   ├── mcp.md                          MCP integration guide
+│   └── deployment.md                   Deployment guide
+│
+├── .env                                Environment variables
+├── .env.example                        Environment template
+├── .gitignore                          Git ignore rules
+├── requirements.txt                    Python dependencies
+├── setup.sh                            Setup script
+├── create_structure.py                 Structure generator script
+├── docker-compose.yml                  Docker configuration
+├── Dockerfile                          Docker image
+├── main.py                             Application entry point
+├── PROJECT_STRUCTURE.md                Structure documentation
+├── FOLDER_TREE.txt                    This file
+├── README.md                           Project README
+└── SETUP.md                           Setup instructions
+
+================================================================================
+TOTAL STRUCTURE: 5 Main Layers + Shared Layer + Configuration + Tests + Docs
+================================================================================
+
+LAYER RESPONSIBILITIES:
+─────────────────────────────────────────────────────────────────────────────
+
+1. PRESENTATION LAYER (presentation/)
+   └─ Streamlit user interface
+      • Pages for application, status, analytics
+      • Reusable components (forms, cards, charts)
+      • Session state and API client
+
+2. MICROSERVICES LAYER (microservices/)
+   └─ FastAPI REST API backend
+      • RESTful endpoints for loans, status, analytics
+      • Pydantic schemas for validation
+      • SQLAlchemy ORM models
+      • Middleware for auth, logging, error handling
+      • Dependency injection
+
+3. ORCHESTRATION LAYER (orchestration/)
+   └─ LangGraph workflow management
+      • Graph definition and state management
+      • Workflow implementations
+      • Conditional routing
+      • State preservation
+
+4. AGENT LAYER (agents/)
+   └─ Four specialized AI agents
+      • Agent 1: Loan Processor (extracts & validates)
+      • Agent 2: Credit Analyzer (analyzes credit)
+      • Agent 3: Risk Assessor (evaluates risk)
+      • Agent 4: Decision Maker (makes final decision)
+
+5. MCP INTEGRATION LAYER (mcp/)
+   └─ Model Context Protocol for tools & resources
+      • Tools: Database, APIs, Calculations, Documents
+      • Resources: Credit rules, Compliance, Reference data
+      • Request handling and execution
+
+6. SHARED LAYER (shared/)
+   └─ Cross-cutting utilities
+      • Configuration management
+      • Database utilities
+      • Custom exceptions
+      • Validators, formatters, helpers
+
+7. CONFIGURATION (config/)
+   └─ Environment-based settings
+      • Database, logging, MCP, agents config
+
+8. TESTS (tests/)
+   └─ Comprehensive test coverage
+      • Unit tests
+      • Integration tests
+      • Test fixtures
+
+9. DOCUMENTATION (docs/)
+   └─ Architecture & implementation guides
+      • Architecture details
+      • API documentation
+      • Agent specifications
+      • Workflow descriptions
+      • MCP integration guide
+      • Deployment instructions
+
+================================================================================
+DATA FLOW:
+─────────────────────────────────────────────────────────────────────────────
+
+User Input (Streamlit)
+    ↓ HTTP POST
+FastAPI (Validation, Database Save)
+    ↓ Invoke
+LangGraph (State Setup, Routing)
+    ↓ Call Agent Nodes
+Agent 1 (Loan Processor) → Agent 2 (Credit Analyzer) → Agent 3 (Risk Assessor) → Agent 4 (Decision Maker)
+    ↓ Use Tools/Resources via MCP
+MCP Layer (Database Tools, APIs, Rules, Calculations)
+    ↓ Return Results
+Back through Agents & Orchestration
+    ↓ Save Decision
+FastAPI (Update Database)
+    ↓ JSON Response
+Streamlit (Display Results)
+
+================================================================================
+KEY FILES BY LAYER:
+─────────────────────────────────────────────────────────────────────────────
+
+PRESENTATION:
+  • app.py - Main entry point
+  • pages/*.py - Individual pages
+  • utils/api_client.py - API communication
+
+MICROSERVICES:
+  • main.py - FastAPI initialization
+  • api/*.py - Route handlers
+  • schemas/*.py - Request/response validation
+  • models/*.py - Database ORM
+
+ORCHESTRATION:
+  • graph.py - Workflow definition
+  • state.py - State schema
+  • workflows/*.py - Workflow implementations
+
+AGENTS:
+  • */agent.py - Agent implementation
+  • */prompts.py - System instructions
+  • */tools.py - Tool definitions
+
+MCP:
+  • server.py - MCP server
+  • tools/*.py - Tool implementations
+  • resources/*.py - Reference data
+
+SHARED:
+  • config.py - Settings
+  • exceptions/*.py - Custom errors
+  • utils/*.py - Utilities
+
+================================================================================
+GETTING STARTED:
+─────────────────────────────────────────────────────────────────────────────
+
+1. Generate folder structure:
+   $ python create_structure.py
+
+2. Install dependencies:
+   $ pip install -r requirements.txt
+
+3. Configure environment:
+   $ cp .env.example .env
+   # Edit .env and add your API keys
+
+4. Run API server:
+   $ uvicorn microservices.main:app --reload
+
+5. Run Streamlit UI (in another terminal):
+   $ streamlit run presentation/app.py
+
+6. Access:
+   • UI: http://localhost:8501
+   • API: http://localhost:8000
+   • API Docs: http://localhost:8000/docs
+
+================================================================================

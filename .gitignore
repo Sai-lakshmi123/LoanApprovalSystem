@@ -1,0 +1,298 @@
+# ============================================================================
+# ENVIRONMENT & CREDENTIALS
+# ============================================================================
+
+# Environment variables files
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.test
+
+# API Keys and Secrets
+*.key
+*.pem
+*.ppk
+*.pub
+credentials.json
+secrets.json
+config.json
+
+# Streamlit secrets (CRITICAL!)
+.streamlit/secrets.toml
+.streamlit/secrets.yaml
+
+# AWS credentials
+~/.aws/credentials
+~/.aws/config
+aws_credentials
+aws_config.json
+
+# Google credentials
+google_credentials.json
+google_service_account.json
+
+# Anthropic API Keys (CRITICAL!)
+anthropic_key
+anthropic_api_key
+ANTHROPIC_API_KEY
+
+# Other API keys
+api_keys.json
+api_keys.env
+*.key.json
+*.key.txt
+
+# Private configuration
+private/
+secrets/
+.secrets/
+
+# ============================================================================
+# PYTHON
+# ============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# C extensions
+*.o
+*.a
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+env.bak/
+venv.bak/
+venv*/
+env*/
+.virtualenv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# ============================================================================
+# DATABASE & LOGS
+# ============================================================================
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
+database/
+*.sql
+
+# Log files
+*.log
+logs/
+log/
+*.log.*
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+
+# ============================================================================
+# BUILD & DEPENDENCIES
+# ============================================================================
+
+# Compiled files
+*.pyc
+*.pyo
+*.class
+*.jar
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Dependency cache
+.pip-cache/
+.pipenv/
+
+# Node modules (if using Node.js tools)
+node_modules/
+npm-debug.log
+
+# ============================================================================
+# OS & EDITOR
+# ============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.Trash-*
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+*.iml
+.classpath
+.project
+.pydevproject
+
+# ============================================================================
+# PROJECT SPECIFIC
+# ============================================================================
+
+# Streamlit cache
+.streamlit/cache/
+.streamlit/cache_*
+.streamlit/*.json
+.streamlit/*.yaml
+.streamlit/*.yml
+!.streamlit/config.toml
+.streamlit/
+
+# Logs
+/tmp/
+logs/
+*.log
+
+# Test results
+test_results_*.json
+test_output/
+coverage_report/
+
+# Cache files
+.cache/
+*.cache
+__pycache__/
+
+# Data files
+data/
+*.csv
+*.xlsx
+*.parquet
+
+# Generated files
+output/
+results/
+*.pdf
+*.xlsx
+
+# ============================================================================
+# SENSITIVE DATA PATTERNS
+# ============================================================================
+
+# Any file with 'secret' in the name
+*secret*
+*credentials*
+*password*
+*token*
+*apikey*
+*api_key*
+*access_key*
+*private*
+
+# File extensions for sensitive data
+*.pfx
+*.p12
+*.p8
+*.jks
+*.keystore
+
+# ============================================================================
+# DOCKER
+# ============================================================================
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# ============================================================================
+# CI/CD
+# ============================================================================
+
+# GitHub Actions
+.github/workflows/*.log
+
+# ============================================================================
+# KEEP THESE (Important files)
+# ============================================================================
+# These should NOT be ignored:
+# - .gitignore (this file)
+# - .env.example (template without actual values)
+# - .streamlit/config.toml (configuration, no secrets)
+# - requirements.txt (dependencies list)
+# - README.md (documentation)
+# - src/ (source code)
+# - tests/ (test code)
+# - orchestration/ (orchestration code)
+# - agents/ (agent code)
