@@ -461,7 +461,6 @@ def main():
                         "case_id": result['case_id']
                     }
                     st.session_state.application_history.insert(0, history_item)
-                    st.session_state.mark_changed()
 
                     st.success("✅ Application evaluated successfully!")
                     st.balloons()
