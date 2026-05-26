@@ -198,9 +198,10 @@ def main():
             approved = sum(1 for app in st.session_state.application_history if app.get('decision') == 'APPROVE')
             rejected = sum(1 for app in st.session_state.application_history if app.get('decision') == 'REJECT')
             review = sum(1 for app in st.session_state.application_history if app.get('decision') == 'REVIEW')
-            st.metric("Applications", f"{total_apps} (✅{approved} ❌{rejected} ⚠️{review})")
+            breakdown = f"{total_apps} (✅ {approved} | ❌ {rejected} | ⚠️ {review})"
+            st.metric("Total Applications", breakdown)
         else:
-            st.metric("Applications", "0")
+            st.metric("Total Applications", "0")
 
     with col3:
         if st.button("🔄 Clear History", key="clear_history"):
