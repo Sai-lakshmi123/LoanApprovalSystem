@@ -193,7 +193,14 @@ def main():
             st.warning("⚠️ API Server not available. Start with: python src/api/main.py")
 
     with col2:
-        st.metric("Applications", len(st.session_state.application_history))
+        total_apps = len(st.session_state.application_history)
+        if total_apps > 0:
+            approved = sum(1 for app in st.session_state.application_history if app.get('decision') == 'APPROVE')
+            rejected = sum(1 for app in st.session_state.application_history if app.get('decision') == 'REJECT')
+            review = sum(1 for app in st.session_state.application_history if app.get('decision') == 'REVIEW')
+            st.metric("Applications", f"{total_apps} (✅{approved} ❌{rejected} ⚠️{review})")
+        else:
+            st.metric("Applications", "0")
 
     with col3:
         if st.button("🔄 Clear History", key="clear_history"):
